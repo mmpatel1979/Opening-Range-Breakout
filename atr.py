@@ -46,8 +46,7 @@ def compute_atr(bars: List[BarData]) -> Optional[float]:
         "close": float(b.close)
     } for b in bars])
     df = df.sort_index().reset_index(drop=True)
-    df['atr'] = ta.volatility.AverageTrueRange(
-        high=df['high'], low=df['low'], close=df['close'], window=ATR_LOOKBACK).average_true_range()
+    df['atr'] = ta.volatility.AverageTrueRange(high=df['high'], low=df['low'], close=df['close'], window=ATR_LOOKBACK).average_true_range()
     return float(df['atr'].iloc[-1])
 
 def fetch_atr(symbol: str) -> Optional[float]:
@@ -57,6 +56,6 @@ def fetch_atr(symbol: str) -> Optional[float]:
     while hist.next_valid_id is None:
         time.sleep(0.05)
     bars = hist.fetch_daily_bars(symbol)
-    atr = compute_atr14_ta(bars)
+    atr = compute_atr14(bars)
     hist.disconnect()
     return atr
