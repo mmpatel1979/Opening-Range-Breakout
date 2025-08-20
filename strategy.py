@@ -95,12 +95,3 @@ def strategy(days, p, orb_m, target_R, risk, max_Lev, AUM_0, commission):
                 PnL_T = entry - min(target_price, OHLC_post_entry[idx_target, 0])
             else:
                 PnL_T = entry - OHLC_post_entry[-1, 3]
-
-        prev_AUM = str_df.loc[t-1, 'AUM']
-        str_df.loc[t, 'AUM'] = prev_AUM + shares * PnL_T - shares * commission * 2
-        str_df.loc[t, 'pnl_R'] = (str_df.loc[t, 'AUM'] - prev_AUM) / (risk * prev_AUM)
-
-    print(f"Backtest completed in {round(time.time() - start_time, 2)} sec")
-    print(f"Final AUM: ${str_df['AUM'].iloc[-1]:,.2f}")
-    print(f"Total Return: {(str_df['AUM'].iloc[-1]/AUM_0 - 1)*100:.2f}%")
-    return str_df
