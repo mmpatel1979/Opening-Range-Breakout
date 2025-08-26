@@ -12,7 +12,7 @@ Opening Range Breakout (ORB) research framework that:
   - Exit at stop intraday, otherwise flatten at the end of regular session (16:00 ET)
 - Commission model: $0.005/share (configurable)
 
-> This repo intentionally excludes live-trading code (market data streams, order routing). It’s meant for public sharing without revealing production infrastructure.
+> This repo intentionally excludes live-trading code (market data streams, order routing).
 
 ## Data Format
 
@@ -21,7 +21,3 @@ CSV with at least:
 - `timestamp` (ISO string or "YYYY-MM-DD HH:MM:SS" in **America/New_York** time)
 - `symbol`
 - `open, high, low, close, volume`
-
-Example rows:
-timestamp,symbol,open,high,low,close,volume
-2024-01-02 09:30:00,TQQQ,45.10,45.30,45.00,45.25,1200000
