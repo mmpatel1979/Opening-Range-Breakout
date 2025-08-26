@@ -10,7 +10,7 @@ Opening Range Breakout (ORB) research framework that:
 - One trade per symbol per day:
   - Enter on breakout of the 5-min high (long) or low (short) depending on bias
   - Exit at stop intraday, otherwise flatten at the end of regular session (16:00 ET)
-- Commission model: $0.005/share (configurable)
+- Commission model: $0.005/share (IBKR)
 
 > This repo intentionally excludes live-trading code (market data streams, order routing).
 
